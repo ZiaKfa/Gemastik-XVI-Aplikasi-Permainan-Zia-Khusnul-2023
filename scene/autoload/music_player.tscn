@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbkg0imh0uckh"]
+
+[ext_resource type="AudioStream" uid="uid://d1i4ojrc6v0ua" path="res://resources/Music/cave themeb4.ogg" id="1_c6uvk"]
+[ext_resource type="Script" path="res://scene/autoload/music_player.gd" id="2_e4qqc"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_c6uvk")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("2_e4qqc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0

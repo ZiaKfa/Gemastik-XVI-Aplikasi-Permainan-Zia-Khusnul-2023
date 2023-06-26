@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdcnkede7n1u7"]
+
+[ext_resource type="Texture2D" uid="uid://3jl23vbygdn5" path="res://resources/SlashEffect.png" id="1_ngty3"]
+[ext_resource type="Script" path="res://scene/effect/slash_effect.gd" id="1_nryut"]
+
+[sub_resource type="Animation" id="Animation_4y6tb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_82ht0"]
+resource_name = "left_slash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8tal1"]
+_data = {
+"RESET": SubResource("Animation_4y6tb"),
+"left_slash": SubResource("Animation_82ht0")
+}
+
+[node name="SlashEffect" type="Node2D"]
+script = ExtResource("1_nryut")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 37)
+rotation = -0.872665
+texture = ExtResource("1_ngty3")
+centered = false
+flip_h = true
+hframes = 5
+
+[node name="Slash" type="AnimationPlayer" parent="."]
+autoplay = "left_slash"
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_8tal1")
+}
+
+[connection signal="animation_finished" from="Slash" to="." method="_on_slash_animation_finished"]

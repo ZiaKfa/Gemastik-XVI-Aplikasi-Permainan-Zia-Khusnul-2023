@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://1k2vbjle40t4"]
+
+[ext_resource type="PackedScene" uid="uid://bo7o7eb4pgqkf" path="res://scene/enemy/basic_enemy.tscn" id="1_blaw0"]
+[ext_resource type="AudioStream" uid="uid://boddatxews6r2" path="res://resources/SFX/slime_left.ogg" id="3_xc4bi"]
+[ext_resource type="AudioStream" uid="uid://dwmwb6hnpivve" path="res://resources/SFX/slime_right.ogg" id="4_l2qnt"]
+[ext_resource type="AudioStream" uid="uid://wku6ifmj3yri" path="res://resources/VO/slime.ogg" id="5_l1q30"]
+[ext_resource type="AudioStream" uid="uid://cdkwa415iy77w" path="res://resources/SFX/slime_death.ogg" id="5_p4888"]
+
+[node name="Slime" instance=ExtResource("1_blaw0")]
+description = "Slime, pertahanan kuat, serangan lemah"
+enemy_damage = 2
+hp = 35
+
+[node name="Left" parent="." index="3"]
+stream = ExtResource("3_xc4bi")
+
+[node name="Right" parent="." index="4"]
+stream = ExtResource("4_l2qnt")
+
+[node name="Death" parent="." index="5"]
+stream = ExtResource("5_p4888")
+
+[node name="Description" parent="." index="6"]
+stream = ExtResource("5_l1q30")

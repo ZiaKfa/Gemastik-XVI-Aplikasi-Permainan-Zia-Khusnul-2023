@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo7o7eb4pgqkf"]
+
+[ext_resource type="Script" path="res://scene/enemy/basic_enemy.gd" id="1_fps34"]
+[ext_resource type="AudioStream" uid="uid://6v0j3x3pvg48" path="res://resources/SFX/enemy_attack.ogg" id="2_hoomj"]
+[ext_resource type="AudioStream" uid="uid://bph5ev1degvqk" path="res://resources/SFX/player_hurt.ogg" id="3_ncsps"]
+[ext_resource type="AudioStream" uid="uid://c814ml3q3dcgv" path="res://resources/VO/enemydefeat.ogg" id="4_fuf4d"]
+
+[node name="BasicEnemy" type="Node2D"]
+script = ExtResource("1_fps34")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hoomj")
+
+[node name="Argh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ncsps")
+
+[node name="Left" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Right" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+
+[node name="Description" type="AudioStreamPlayer" parent="."]
+
+[node name="NextRoom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fuf4d")

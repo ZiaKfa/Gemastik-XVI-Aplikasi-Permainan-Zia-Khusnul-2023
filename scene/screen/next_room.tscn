@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dquagblbkvol7"]
+
+[ext_resource type="Texture2D" uid="uid://dyg5npvgb7bv4" path="res://resources/next_room.png" id="1_1muwp"]
+[ext_resource type="Script" path="res://scene/screen/next_room.gd" id="1_lodpa"]
+
+[node name="NextRoom" type="Node2D"]
+script = ExtResource("1_lodpa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(44, 26)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_1muwp")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

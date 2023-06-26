@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://1hb1m4o73o1x"]
+
+[ext_resource type="PackedScene" uid="uid://bo7o7eb4pgqkf" path="res://scene/enemy/basic_enemy.tscn" id="1_mcr54"]
+[ext_resource type="AudioStream" uid="uid://ej4240icm774" path="res://resources/SFX/phantom_right.ogg" id="2_trsjy"]
+[ext_resource type="AudioStream" uid="uid://chahb3pof5ro6" path="res://resources/SFX/phantom_left.ogg" id="3_1jms5"]
+[ext_resource type="AudioStream" uid="uid://bkn14duo13pik" path="res://resources/SFX/phantom_death.ogg" id="4_lqump"]
+[ext_resource type="AudioStream" uid="uid://b3jio25f20qrw" path="res://resources/VO/phantom.ogg" id="5_d006l"]
+
+[node name="Phantom" instance=ExtResource("1_mcr54")]
+description = "Phantom, memanipulasi suara, pertahanan lemah dengan serangan kuat"
+enemy_damage = 10
+hp = 12
+
+[node name="Left" parent="." index="3"]
+stream = ExtResource("2_trsjy")
+volume_db = 10.0
+
+[node name="Right" parent="." index="4"]
+stream = ExtResource("3_1jms5")
+volume_db = 10.0
+
+[node name="Death" parent="." index="5"]
+stream = ExtResource("4_lqump")
+
+[node name="Description" parent="." index="6"]
+stream = ExtResource("5_d006l")

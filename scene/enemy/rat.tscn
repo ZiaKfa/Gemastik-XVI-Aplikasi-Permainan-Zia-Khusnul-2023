@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsij8j3k8sm68"]
+
+[ext_resource type="PackedScene" uid="uid://bo7o7eb4pgqkf" path="res://scene/enemy/basic_enemy.tscn" id="1_5kjdy"]
+[ext_resource type="AudioStream" uid="uid://b37xeuri4ko7j" path="res://resources/SFX/rat_left.ogg" id="2_aatod"]
+[ext_resource type="AudioStream" uid="uid://cuceou7uxhmtb" path="res://resources/SFX/rat_right.ogg" id="3_3gc01"]
+[ext_resource type="AudioStream" uid="uid://dvefvhi4cei8a" path="res://resources/SFX/rat_death.ogg" id="4_f4hbg"]
+[ext_resource type="AudioStream" uid="uid://dqch1nlinx653" path="res://resources/VO/rat.ogg" id="5_bjn47"]
+
+[node name="Rat" instance=ExtResource("1_5kjdy")]
+description = "Tikus, pertahanan dan serangan sedang"
+enemy_damage = 4
+
+[node name="Left" parent="." index="3"]
+stream = ExtResource("2_aatod")
+
+[node name="Right" parent="." index="4"]
+stream = ExtResource("3_3gc01")
+
+[node name="Death" parent="." index="5"]
+stream = ExtResource("4_f4hbg")
+
+[node name="Description" parent="." index="6"]
+stream = ExtResource("5_bjn47")

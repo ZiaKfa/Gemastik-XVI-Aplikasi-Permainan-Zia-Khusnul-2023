@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://buu5mmlq00lds"]
+
+[ext_resource type="Script" path="res://scene/battle/player_stats.gd" id="1_d621d"]
+[ext_resource type="AudioStream" uid="uid://7cylv4gnp8hy" path="res://resources/SFX/low_health.ogg" id="2_mxdbt"]
+[ext_resource type="AudioStream" uid="uid://b1xcrirddxy1g" path="res://resources/VO/healready.ogg" id="3_y88rt"]
+
+[node name="PlayerStats" type="Node"]
+script = ExtResource("1_d621d")
+
+[node name="LowHealth" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mxdbt")
+volume_db = 5.0
+
+[node name="HealReady" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y88rt")
+volume_db = -6.0

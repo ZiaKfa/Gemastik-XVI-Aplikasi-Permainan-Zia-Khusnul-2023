@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbm2kyh57r6ir"]
+
+[ext_resource type="PackedScene" uid="uid://cdcnkede7n1u7" path="res://scene/effect/slash_effect.tscn" id="1_143df"]
+
+[node name="SlashEffectRight" instance=ExtResource("1_143df")]

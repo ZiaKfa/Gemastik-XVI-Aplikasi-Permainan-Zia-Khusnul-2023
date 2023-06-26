@@ -1,0 +1,141 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsu05duvng8mb"]
+
+[ext_resource type="Script" path="res://scene/screen/game_over.gd" id="1_owt6v"]
+[ext_resource type="Texture2D" uid="uid://b7wmjikd7e0ti" path="res://resources/gameovernew.png" id="2_73twq"]
+[ext_resource type="Script" path="res://scene/swipecontrol/swipe_control.gd" id="3_mo41c"]
+[ext_resource type="AudioStream" uid="uid://urgsv7be0hrg" path="res://resources/VO/gameover.ogg" id="4_rtodk"]
+[ext_resource type="AudioStream" uid="uid://dpe2h8t7eimxn" path="res://resources/SFX/door.ogg" id="5_niaya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgunm"]
+
+[sub_resource type="Animation" id="Animation_wa82y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5a3ut"]
+resource_name = "fade game over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide_image"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lcfc5"]
+resource_name = "fade'"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide_logo"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfv8g"]
+_data = {
+"RESET": SubResource("Animation_wa82y"),
+"fade game over": SubResource("Animation_5a3ut"),
+"fade'": SubResource("Animation_lcfc5")
+}
+
+[node name="GameOver" type="Node"]
+script = ExtResource("1_owt6v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(45, 75)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("2_73twq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 89.0
+offset_bottom = 159.0
+
+[node name="SwipeScreenButton" type="TouchScreenButton" parent="Control"]
+position = Vector2(45, 80)
+scale = Vector2(4.51697, 7.9512)
+shape = SubResource("RectangleShape2D_vgunm")
+script = ExtResource("3_mo41c")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lfv8g")
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rtodk")
+
+[node name="Door" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_niaya")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=18]

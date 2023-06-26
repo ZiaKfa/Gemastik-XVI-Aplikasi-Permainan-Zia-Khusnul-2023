@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgq72lkjbdn73"]
+
+[ext_resource type="Texture2D" uid="uid://w1fgxkailmk" path="res://resources/studio_logo.png" id="1_ddavt"]
+[ext_resource type="Script" path="res://scene/screen/intro.gd" id="1_e8oh2"]
+[ext_resource type="Texture2D" uid="uid://cuebmuas3yxvn" path="res://resources/headphone.png" id="2_4uey2"]
+[ext_resource type="FontFile" uid="uid://bcax8tpy61quc" path="res://resources/PixelRPG.ttf" id="3_644uk"]
+[ext_resource type="AudioStream" uid="uid://bxeifnq46ql00" path="res://resources/VO/intro.ogg" id="5_ncp1p"]
+
+[sub_resource type="Animation" id="Animation_yvwuw"]
+resource_name = "Intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StudioLogo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 1.1, 3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Headphone:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 4.7, 5.2, 7.6, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.7, 5.2, 7.6, 8.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_intro_audio"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a6cu6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StudioLogo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Headphone:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b7vq8"]
+_data = {
+"Intro": SubResource("Animation_yvwuw"),
+"RESET": SubResource("Animation_a6cu6")
+}
+
+[node name="Intro" type="Node"]
+script = ExtResource("1_e8oh2")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StudioLogo" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(44, 75)
+scale = Vector2(0.160056, 0.161516)
+texture = ExtResource("1_ddavt")
+
+[node name="Headphone" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(46, 56)
+scale = Vector2(0.269683, 0.257769)
+texture = ExtResource("2_4uey2")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 11.0
+offset_top = 94.0
+offset_right = 84.0
+offset_bottom = 121.0
+scale = Vector2(0.951497, 0.87228)
+theme_override_fonts/font = ExtResource("3_644uk")
+theme_override_font_sizes/font_size = 6
+text = "Gunakan Headphone
+Untuk Pengalaman 
+Maksimal"
+horizontal_alignment = 1
+
+[node name="Intro" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+libraries = {
+"": SubResource("AnimationLibrary_b7vq8")
+}
+
+[node name="IntroAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ncp1p")

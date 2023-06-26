@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c15rlfbpn1kkb"]
+
+[ext_resource type="PackedScene" uid="uid://cdcnkede7n1u7" path="res://scene/effect/slash_effect.tscn" id="1_hka30"]
+
+[node name="SlashEffectLeft" instance=ExtResource("1_hka30")]
+rotation = -5.49779
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(24.7487, -23.3345)
+rotation = -6.28319
+flip_h = false
