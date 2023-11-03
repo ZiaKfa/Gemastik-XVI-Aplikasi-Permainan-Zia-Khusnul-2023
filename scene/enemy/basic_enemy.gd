@@ -73,7 +73,6 @@ func take_damage(amount):
 		death_sound.play()
 		next_room_audio.play()
 		await next_room_audio.finished
-		await death_sound.finished
 		var next_room = NextRoom.instantiate()
 		get_tree().current_scene.add_child(next_room)
 		next_room.global_position = Vector2.ZERO

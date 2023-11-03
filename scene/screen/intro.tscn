@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dgq72lkjbdn73"]
 
-[ext_resource type="Texture2D" uid="uid://w1fgxkailmk" path="res://resources/studio_logo.png" id="1_ddavt"]
 [ext_resource type="Script" path="res://scene/screen/intro.gd" id="1_e8oh2"]
 [ext_resource type="Texture2D" uid="uid://cuebmuas3yxvn" path="res://resources/headphone.png" id="2_4uey2"]
+[ext_resource type="Texture2D" uid="uid://c8mjommb3rsbu" path="res://resources/Studio_logo (2).png" id="2_12jkc"]
 [ext_resource type="FontFile" uid="uid://bcax8tpy61quc" path="res://resources/PixelRPG.ttf" id="3_644uk"]
 [ext_resource type="AudioStream" uid="uid://bxeifnq46ql00" path="res://resources/VO/intro.ogg" id="5_ncp1p"]
 
@@ -119,8 +119,8 @@ color = Color(0, 0, 0, 1)
 [node name="StudioLogo" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(44, 75)
-scale = Vector2(0.160056, 0.161516)
-texture = ExtResource("1_ddavt")
+scale = Vector2(0.25, 0.253)
+texture = ExtResource("2_12jkc")
 
 [node name="Headphone" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -130,10 +130,10 @@ texture = ExtResource("2_4uey2")
 
 [node name="Label" type="Label" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = 11.0
-offset_top = 94.0
-offset_right = 84.0
-offset_bottom = 121.0
+offset_left = 10.0
+offset_top = 106.0
+offset_right = 83.0
+offset_bottom = 133.0
 scale = Vector2(0.951497, 0.87228)
 theme_override_fonts/font = ExtResource("3_644uk")
 theme_override_font_sizes/font_size = 6

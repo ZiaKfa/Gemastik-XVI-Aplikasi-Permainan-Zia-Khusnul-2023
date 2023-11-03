@@ -12,12 +12,13 @@ config_version=5
 
 config/name="Gemastik"
 run/main_scene="res://scene/screen/intro.tscn"
-config/features=PackedStringArray("4.0", "Mobile")
+config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MusicPlayer="*res://scene/autoload/music_player.tscn"
+Score="*res://scene/autoload/score.gd"
 
 [display]
 
@@ -26,6 +27,7 @@ window/size/viewport_height=160
 window/size/window_width_override=360
 window/size/window_height_override=640
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [input_devices]
 

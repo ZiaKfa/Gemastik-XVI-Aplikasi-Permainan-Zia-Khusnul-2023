@@ -10,6 +10,7 @@ extends Node
 @onready var credit = $Credit/CreditFade
 @onready var voice = $VoiceOver
 @onready var tutorial_voice = $TutorialVoice
+@onready var high_score_text = $Control/HighScore
 
 var tutorial_onscreen = false
 var credit_onscreen = false
@@ -19,6 +20,7 @@ var swipe_cooldown = 0.1
 
 func _ready():
 	voice.play()
+	high_score_text.text = str(Score.highest_score)
 
 func _input(event):
 	if event is InputEventScreenDrag:

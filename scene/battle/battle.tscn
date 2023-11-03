@@ -188,6 +188,30 @@ scale = Vector2(4.55257, 7.98682)
 shape = SubResource("RectangleShape2D_auid2")
 script = ExtResource("6_f3nna")
 
+[node name="Label" type="Label" parent="UIBase"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 99.0
+offset_right = 39.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("11_dn3s2")
+theme_override_font_sizes/font_size = 6
+text = "Lantai :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="UIBase"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 109.0
+offset_right = 39.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("11_dn3s2")
+theme_override_font_sizes/font_size = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Fade" type="ColorRect" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15

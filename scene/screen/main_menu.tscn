@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://6llvnsvv0jca"]
+[gd_scene load_steps=24 format=3 uid="uid://6llvnsvv0jca"]
 
 [ext_resource type="Script" path="res://scene/screen/main_menu.gd" id="1_i2sci"]
 [ext_resource type="Texture2D" uid="uid://btg2bkjcv4no0" path="res://resources/logo.png" id="2_67w2v"]
 [ext_resource type="Texture2D" uid="uid://hbdmbs7riyf" path="res://resources/heal.png" id="2_g2cnt"]
 [ext_resource type="Script" path="res://scene/swipecontrol/swipe_control.gd" id="3_j66i1"]
 [ext_resource type="Texture2D" uid="uid://c7c5s002lcrkr" path="res://resources/logo1.jpg" id="4_53yt4"]
+[ext_resource type="FontFile" uid="uid://bcax8tpy61quc" path="res://resources/PixelRPG.ttf" id="5_1r080"]
 [ext_resource type="Texture2D" uid="uid://ds3mn1q78ksu7" path="res://resources/tutorial.png" id="6_1m6nx"]
 [ext_resource type="AudioStream" uid="uid://dpe2h8t7eimxn" path="res://resources/SFX/door.ogg" id="6_o5pve"]
 [ext_resource type="Texture2D" uid="uid://byrn183h55peb" path="res://resources/Credit.jpg" id="7_5ppyg"]
@@ -195,6 +196,30 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 89.0
 offset_bottom = 159.0
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 19.0
+offset_top = -0.999999
+offset_right = 64.0
+offset_bottom = 22.0
+scale = Vector2(1.3446, 1.22364)
+theme_override_fonts/font = ExtResource("5_1r080")
+theme_override_font_sizes/font_size = 6
+text = "High Score :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="Control"]
+offset_left = 19.0
+offset_top = 10.0
+offset_right = 64.0
+offset_bottom = 33.0
+scale = Vector2(1.3446, 1.22364)
+theme_override_fonts/font = ExtResource("5_1r080")
+theme_override_font_sizes/font_size = 6
+text = "88"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SwipeScreenButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(46, 80)

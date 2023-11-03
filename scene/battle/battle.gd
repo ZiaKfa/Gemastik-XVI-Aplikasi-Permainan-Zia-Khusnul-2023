@@ -12,6 +12,7 @@ extends Node
 @onready var low_health = $UIBase/LowHealthOverlay
 @onready var battle_log = $UIBase/Log/LogText
 @onready var negative = $Negative
+@onready var score_text = $UIBase/Score
 @export var enemies:Array[PackedScene]
 
 var BattleUnits = preload("res://scene/resource/battle_units.tres")
@@ -22,6 +23,9 @@ const HitEffect = preload("res://scene/effect/hit_effect.tscn")
 const ShieldEffect = preload("res://scene/effect/shield.tscn")
 
 var player_turn = false
+var current_score = 0
+
+
 
 ##start battle
 func _ready():
@@ -152,6 +156,11 @@ func _on_timer_timeout():
 	swipe_detected = false
 
 func create_new_enemy():
+	current_score = current_score + 1
+	if current_score > Score.highest_score:
+		Score.highest_score = current_score
+	Score.save_score()
+	print("score = " + str(current_score))
 	var rand_rng = randi_range(0,2)
 	var Enemy = enemies[rand_rng]
 	var enemy = Enemy.instantiate()
@@ -200,6 +209,7 @@ func enter_new_room():
 
 func _process(_delta):
 	var player = BattleUnits.Player
+	score_text.text = str(current_score)
 	if player.hp <=0:
 		low_health.hide()
 		fade.play("fade battle")
